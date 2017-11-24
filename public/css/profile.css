@@ -1,0 +1,88 @@
+.img-circle {
+	position: relative;
+	width: 25%;
+	min-width: 150px;
+	border-radius: 50%;
+	display: block;
+	margin: auto;
+}
+
+#img-div {
+	width: 100%;
+	text-align: left;
+}
+
+.material-icons {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.btnright {
+	float: right;
+}
+
+
+.sujet {
+	color: orange;
+	font-weight: 300;
+	text-align: center;
+}
+
+.avatar {
+	display: block;
+	min-width: 150px;
+	width: 25%;
+	margin: auto;
+	height: 250px;
+	width: 250px;
+}
+
+body {
+  background-image: url(../img/gplaypattern.png);
+}
+
+ /* label color */
+   .input-field label {
+     color: orange;
+   }
+   /* label focus color */
+   .input-field input:focus + label {
+     color: orange !important; 
+   }
+   /* label underline focus color */
+   .input-field input:focus {
+     border-bottom: 1px solid  orange!important;
+     box-shadow: 0 1px 0 0  orange !important;
+   }
+   /* valid color */
+   .input-field input.valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input.invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color:  orange !important;
+   }
+ /* label color */
+   .textarea label {
+     color: orange;
+   }
+   /* label focus color */
+    .input-field input:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+     color: orange !important;
+    }
+
+/* label underline focus color */
+    .input-field input:focus, .materialize-textarea:focus:not([readonly]) {
+     border-bottom: 1px solid orange !important;
+     box-shadow: 0 1px 0 0 orange !important;
+    }
+   /* icon prefix focus color */
+   .textarea .prefix.active {
+     color:  orange !important;
+   }

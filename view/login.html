@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="icon" type="image/png" href="/img/logo.png" />
+	<title>Login</title>
+</head>
+<body>
+	<main class="element">
+		<div class="row center-div offset-m3">
+			<div class="card grey lighten-4 z-depth-4" >
+				<div class="card-content teal-text lighten-2">
+					<div class="row">
+						<div class="input-field col s12 center">
+							<a href="../"><img src="img/work.png" alt="" class="circle responsive-img valign profile-image-login" style="max-width: 60%;"></a>
+							<p class="center login-form-text">Trad Mania</p>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix icon-div">account_circle</i>
+							<input id="username" type="text" class="validate">
+							<label for="username">Username</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 ">
+							<i class="material-icons prefix icon-div">lock</i>
+							<input id="password" type="password" class="validate">
+							<label for="password">Password</label>
+						</div>
+					</div>
+					<p class="remember-div">
+						<input type="checkbox" id="test5" class="orange"/>
+						<label for="test5">Remember Me</label>
+					</p>
+					<br>
+					<div class="row">
+						<button class="btn waves-effect waves-light col s12 rgba(231, 128, 36, 0.95)" type="submit" name="action" onclick="check()">Login
+							<i class="material-icons right">send</i>
+						</button>
+					</div>
+					<div class="row">
+						<div class="input-field col s6 m6 l6">
+							<p class="margin medium-small"><a href="register" style="font-size: smaller; color: black;">Register Now!</a></p>
+						</div>
+						<div class="input-field col s6 m6 l6">
+							<p class="margin right-align medium-small"><a href="#modal1" style="font-size: smaller; color: black;">Forgot password ?</a></p>
+							<div id="modal1" class="modal">
+								<div class="modal-content">
+									<h4>Mot de passe oublié ?</h4>
+									<p style="color: grey;">Entrez votre email afin que nous vous renvoyons vos données de connexion</p>
+									<div class="input-field col s12">
+										<i class="material-icons prefix icon-div">email</i>
+										<input id="email" type="text" class="validate">
+										<label for="email">Email</label>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Send</a>
+								</div>
+								<br>
+							</div>
+
+						</div>          
+					</div> 
+				</div>
+			</div>
+		</div>
+	</main>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/greensock-js-business-green/src/minified/TweenMax.min.js"></script>
+	<script type="text/javascript" src="js/greensock-js-business-green/src/minified/TimelineMax.min.js"></script>
+	<script type="text/javascript" src="js/greensock-js-business-green/src/minified/plugins/DrawSVGPlugin.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript">  $(document).ready(function(){
+		$('.modal').modal();
+	
+		var tl2 = new TimelineMax({});
+
+        tl2.fromTo($('#tradmaniasvg #backgroundcircle'), 1, {transformOrigin:"50% 50%",opacity:1,scale:0.1},{scale:1})
+        .set($('#tradmaniasvg path.cls-2'),{opacity:1})
+        .fromTo($('#tradmaniasvg path.cls-2'), 2,{drawSVG:"0%"},{drawSVG:"100%"})
+        .to($('#tradmaniasvg path.cls-2'), 1,{fill:"#fff"})
+        .to($('#tradmaniasvg path'), 1,{opacity:1},"-=1")
+        .to($('#loader'),1,{opacity:0})
+        .set($('#loader'),{display:"none"});
+	
+	});</script>
+
+</body>
+</html>

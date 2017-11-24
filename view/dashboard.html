@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <link href="css/nouislider.min.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Dashboard</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="../" class="orange-text text-accent-4 brand-logo">TradMania</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/projet">Espace porteur</a></li>
+        <li><a href="/traducteur">Espace Traducteur</a></li>
+        <li><a href='/dashboard'><i class="material-icons">dashboard</i></a></li>
+        <li><a href='/uprojet'><i class="material-icons">add_circle</i></a></li>
+        <li><a class='dropdown-button' data-beloworigin="true" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
+
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a class="orange-text" href="/profile">Profile</a></li>
+          <li><a class="orange-text" href="/deco">Deconnexion</a></li>
+        </ul>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="/projet">Espace porteur</a></li>
+        <li><a href="/traducteur">Espace Traducteur</a></li>
+        <br> 
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/deco">Deconnexion</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 style="text-align: center;" class="grey-text text-darken-1">TABLEAU DE BORD</h2>
+    <div class="col s12">
+      <div class="card-panel blue-grey lighten-5">
+        <h5 class="grey-text text-darken-1"> MES PROJET(S) <span class="grey-text" style="float: right;"><%=projets.length%></span></h5>
+      </div>
+    </div>
+    <% for(var i=0; i<projets.length; i++) { %>
+    <div class="col s12">
+      <div class="card-panel">
+        <div class="row">
+          <div class="col s2">
+           <img class="miniature" <% if (projets[i].img) { %> src="img/<%= projets[i].img %>"<% } else { %>src="../img/default-book.png"<%} %>>
+         </div>
+         <div class="col s7">
+          <% if (projets[i].name) { %>
+          <h5><%= projets[i].name %></h5>
+          <% } %>
+
+          <h6> Document / livre</h6>
+          <% if (projets[i].lgd) { %>
+          <h6><%= projets[i].lgd %></h6>
+          <% } %>
+           <% if (projets[i].lgs) { %>
+          <h6><%= projets[i].lgs %></h6>
+          <% } %>
+          <% if (projets[i].users) { %>
+          <h6><%= projets[i].users.length %></h6>
+          <% } %>
+          <h6> ETAT : <nono class="red-text">En cours</nono></h6>
+        </div>
+        <div class="col s3">
+         <button onclick="document.location.href='../editprojet?q=<%= projets[i]._id %>'" style="margin-top: 20px; align-content: center;" class="waves-effect waves-light btn green"><i class="material-icons">remove_red_eye</i>Voir</button>
+         <button onclick="document.location.href='../tradtool?q=<%= projets[i]._id %>'" style="margin-top: 10px; align-content: center;" class="waves-effect waves-light btn orange"><i class="material-icons">build</i>Continuer</button>
+         <button style="margin-top: 10px; align-content: center;" data-target="modal1" class="waves-effect waves-light btnright btn red modal-trigger"><i class="material-icons left">clear</i>Delete</button>
+         <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Êtes vous sûr de vouloir supprimer ce projet ?</h4>
+            <p style="color: grey;">Cette suppresion est definitive : Il n'y a pas de retour en arrière ! </p>
+            <br>
+            <button onclick="document.location.href='../rmprojet?q=<%= projets[i]._id %>'" class="waves-effect waves-light btn red">SUPPRIMER</button>
+            <button class="waves-effect waves-light btn green">ANNULER</button>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %> 
+
+<div class="col s12">
+  <div class="card-panel blue-grey lighten-5">
+    <h5 class="grey-text text-darken-1"> MES PARTICIPATION(S) <span class="grey-text" style="float: right;"><%=projets2.length%></span></h5>
+  </div>
+</div>
+ <% for(var i=0; i<projets2.length; i++) { %>
+<div class="col s12">
+  <div class="card-panel">
+    <div class="row">
+      <div class="col s2">
+       <img class="miniature" <% if (projets2[i].img) { %> src="img/<%= projets2[i].img %>"<% } else { %>src="../img/default-book.png"<%} %>>
+     </div>
+     <div class="col s7">
+          <% if (projets2[i].name) { %>
+          <h5><%= projets2[i].name %></h5>
+          <% } %>
+          <h6> Document / livre</h6>
+          <% if (projets2[i].lgd) { %>
+          <h6><%= projets2[i].lgd %></h6>
+          <% } %>
+          <% if (projets2[i].lgs) { %>
+          <h6><%= projets2[i].lgs %></h6>
+          <% } %>
+           <% if (projets2[i].users) { %>
+          <h6><%= projets2[i].users.length %></h6>
+          <% } %>
+       <h6> ETAT : <nono class="red-text">En cours</nono></h6>
+     </div>
+     <div class="col s3">
+       <button onclick="document.location.href='../viewprojet?q=<%= projets2[i]._id %>'" style="margin-top: 20px; align-content: center;" class="waves-effect waves-light btn green"><i class="material-icons">remove_red_eye</i>Voir</button>
+       <button onclick="document.location.href='../tradtool?q=<%= projets2[i]._id %>'" style="margin-top: 10px; align-content: center;" class="waves-effect waves-light btn orange"><i class="material-icons">build</i>Continuer</button>
+       <button style="margin-top: 10px; align-content: center;" data-target="modal2" class="waves-effect waves-light btnright btn red modal-trigger"><i class="material-icons left">clear</i>Quitter</button>
+       <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Êtes vous sûr de vouloir quitter le projet ?</h4>
+          <p style="color: grey;">Quand le projet sera terminer vous ne pourrez le voir dans votre historique et predrez tout le crédit obtenus jusqu'ici. </p>
+          <br>
+          <button onclick="document.location.href='../utradrm?q=<%= projets2[i]._id %>'" class="waves-effect waves-light btn red">QUITTER</button>
+          <button class="waves-effect waves-light btn green">ANNULER</button>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% } %> 
+</div>
+
+
+<%-include('/root/tradmania/view/footer');%>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript">  $(document).ready(function(){
+  $('.modal').modal();
+});</script>
+</body>
+</html>

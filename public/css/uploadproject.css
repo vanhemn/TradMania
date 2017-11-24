@@ -1,0 +1,17 @@
+body .btn, body .btn-large {
+	background:rgba(231, 128, 36, 0.95)!important;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid rgb(231, 128, 36)!important;
+    box-shadow: 0 1px 0 0 rgba(231, 128, 36, 0.95)!important;
+}
+
+
+body .teal-text,body .teal-text.prefix.active,body label.active, .input-field .prefix.active {
+	color: rgb(231, 128, 36)!important;
+}
+
+body {
+	background-image: url(../img/gplaypattern.png);
+}

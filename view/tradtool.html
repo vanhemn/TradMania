@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TradMania</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<link href="css/nouislider.min.css" rel="stylesheet">
+	<link href="css/tradtool.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/logo.png" />
+
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+	<nav class="white" role="navigation">
+		<div class="nav-wrapper container">
+			<a id="logo-container" href="../" class="orange-text text-accent-4 brand-logo">TradMania</a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="/projet">Espace porteur</a></li>
+				<li><a href="/traducteur">Espace Traducteur</a></li>
+				<li><a href='/dashboard'><i class="material-icons">dashboard</i></a></li>
+				<li><a href='/uprojet'><i class="material-icons">add_circle</i></a></li>
+				<li><a class='dropdown-button' data-beloworigin="true" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
+
+				<ul id='dropdown1' class='dropdown-content'>
+					<li><a class="orange-text" href="/profile">Profile</a></li>
+					<li><a class="orange-text" href="/deco">Deconnexion</a></li>
+				</ul>
+			</ul>
+
+			<ul id="nav-mobile" class="side-nav">
+				<li><a href="/projet">Espace porteur</a></li>
+				<li><a href="/traducteur">Espace Traducteur</a></li>
+				<br> 
+				<li><a href="/profile">Profile</a></li>
+				<li><a href="/deco">Deconnexion</a></li>
+			</ul>
+			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+		</div>
+	</nav>
+	<div class="container">
+		<h2 style="text-align: center;" class="grey-text text-darken-1"><%=did.name%></h2>
+		<br>
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card-panel">
+					<div id="did" style="display:none;"><%=did.docid%></div>
+					<div id="username" style="display:none;"><%=user.name%></div>
+					<span class="card-title activator grey-text text-darken-4"></span>
+					<% for(var i=0; i<docx.length; i++) { %>
+					<<%=docx[i].balise%> tool="<%if (docx[i].tool){%><%=docx[i].tool%><%} else {%><%=docx[i].text%><%}%>" class="tphrase" org="<%=docx[i].text%>" index=<%=i%>> <%=docx[i].text%> </<%=docx[i].balise%>>
+					<% } %>
+				</div> 
+			</div>
+		</div>
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h4 class="grey-text text-darken-1" style="text-align: center;">Proposition de traduction</h4>
+				<br>
+				<div class="col s12" style="margin-right: 50px; margin-left: 50px;">
+					<div class="card-panel">
+						<p class="tooltipped" data-position="top" data-delay="50" data-tooltip="top tooltip" id="tbefore" style="font-size: 100%"></p>
+						<div class="row">
+							<div class="input-field col s12">
+								<textarea id="trad" tyle="font-size: 115%" class="materialize-textarea validate tooltipped grey-text text-darken-2" data-position="bottom" data-delay="50" data-tooltip="lel salut"></textarea>
+							</div>
+						</div>
+						<p class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="tooltip bottom" id="tafter" style="font-size: 100%"></p>
+					</div>
+					<br>
+				</div>
+				<div class="col s12">
+					<button class="waves-effect waves-light btn orange"><i class="material-icons left">remove_red_eye</i>Show Original</button>
+					<button id="sendt" class="waves-effect waves-light btnright btn orange"><i class="material-icons right">send</i>Submit</button>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script type="text/javascript" src="js/tradtool.js"></script>
+	<script type="text/javascript">  $(document).ready(function(){
+		$('.modal').modal();
+	});</script>
+</body>
+</html>

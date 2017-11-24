@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <link href="css/nouislider.min.css" rel="stylesheet">
+  <link href="css/userprofil.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>TradMania</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head> 
+<body>
+
+  <% if (navbar) { %> <%-include('/root/tradmania/view/nav_bar_online');%> <% } else { %> <%-include('/root/tradmania/view/nav_bar_offline');%> <%} %>
+
+  <div class="container">
+    <h2 style="text-align: center;" class="grey-text text-darken-1">PROFILE</h2>
+    <div class="col s12">
+      <div class="card-panel">
+        <div class="row">
+          <div class="col s12 m3">
+           <img class="avatar" <% if (user.img) { %> src="img/<%= user.img %>"<% } else { %>src="../img/user.png"<%} %>>
+         </div>
+         <div class="col s12 m8 offset-m1">
+          <% if (user.name) { %>
+          <h4><%= user.name %></h4>
+          <% } %>
+          <% if (user.country) { %>
+          <h4><%= user.country %></h4>
+          <% } %>
+          <% if (user.lg) { %>
+          <h5>Langue(s) connue(s) : <%= user.lg %></h5>
+          <% } %>
+
+          <br          <% if (user.date) { %>
+          <p><%= user.date %></p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12">
+    <div class="card-panel blue-grey lighten-5">
+      <h5 class="grey-text text-darken-1"> PROJET(S) <span class="grey-text" style="float: right;"><%=projets.length%></span></h5>
+    </div>
+  </div>
+  <% for(var i=0; i<projets.length; i++) { %>
+  <div class="col s12">
+    <div class="card-panel">
+      <div class="row">
+        <div class="col s12 m2">
+         <img class="miniature"<% if (projets[i].img) { %> src="img/<%= projets[i].img %>"<% } else { %>src="../img/default-book.png"<%} %>>
+       </div>
+       <div class="col s12 m8">
+         <h5> <%= projets[i].name %> </h5>
+         <h6> Document / livre </h6>
+         <h6> <%= projets[i].lgd %></h6>
+         <h6> <%= projets[i].lgs %></h6>
+          <% if (projets[i].users) { %>
+         <h6> <%= projets[i].users.length %></h6>
+          <% } %>
+         <h6> ETAT : <nono class="red-text">En cours</nono</h6>
+       </div>
+       <div class="col s12 m2">
+         <% if (navbar) { %>
+         <button onclick="document.location.href='../viewprojet?q=<%= projets[i]._id %>'" style="margin-top: 50px; align-content: center;" class="waves-effect waves-light btn green"><i class="material-icons">remove_red_eye</i>Voir</button>
+         <% } %> 
+       </div> 
+     </div>
+   </div>
+ </div>
+ <% } %>
+
+ 
+ <div class="col s12">
+  <div class="card-panel blue-grey lighten-5">
+    <h5 class="grey-text text-darken-1"> PARTICIPATION(S) <span class="grey-text" style="float: right;"><%=projets2.length%></span></h5>
+  </div>
+</div>
+<% for(var i=0; i<projets2.length; i++) { %>
+<div class="col s12">
+  <div class="card-panel">
+    <div class="row">
+      <div class="col s12 m2">
+       <img class="miniature" <% if (projets2[i].img) { %> src="img/<%= projets2[i].img %>"<% } else { %>src="../img/default-book.png"<%} %>>
+     </div>
+     <div class="col s12 m8">
+       <h5> <%= projets2[i].name %> </h5>
+         <h6> Document / livre </h6>
+         <h6> <%= projets2[i].lgd %></h6>
+         <h6> <%= projets2[i].lgs %></h6>
+         <% if (projets2[i].users) { %>
+         <h6> <%= projets2[i].users.length %></h6>
+         <% } %>
+       <h6> ETAT : <nono class="red-text">En cours</nono></h6>
+     </div>
+     <div class="col s12 m2">
+      <% if (navbar) { %>
+         <button onclick="document.location.href='../viewprojet?q=<%= projets2[i]._id %>'" style="margin-top: 50px; align-content: center;" class="waves-effect waves-light btn green"><i class="material-icons">remove_red_eye</i>Voir</button>
+         <% } %> 
+     </div>
+   </div>
+ </div>
+</div>
+ <% } %>
+</div>
+
+
+<%-include('/root/tradmania/view/footer');%>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('select').material_select();
+ });
+</script>
+<script type="text/javascript">  $(document).ready(function(){
+  $('.modal').modal();
+});</script>
+</body>
+</html>

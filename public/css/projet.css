@@ -1,0 +1,38 @@
+body .btn, body .btn-large {
+	background:rgba(231, 128, 36, 0.95)!important;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid rgb(231, 128, 36)!important;
+    box-shadow: 0 1px 0 0 rgba(231, 128, 36, 0.95)!important;
+}
+
+
+body .teal-text,body .teal-text.prefix.active,body label.active, .input-field .prefix.active {
+	color: rgb(231, 128, 36)!important;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: rgb(239, 169, 108)!important;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: rgb(231, 128, 36)!important;
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: rgb(231, 128, 36)!important;
+}
+
+[type="checkbox"]:checked + label::before { 
+	border-right: 2px solid rgb(231, 128, 36) !important;
+border-bottom: 2px solid rgb(231, 128, 36) !important; }
+
+.avatar {
+	display: block;
+	min-width: 150px;
+	width: 25%;
+	margin: auto;
+	height: 340px;
+	width: 340px;
+}

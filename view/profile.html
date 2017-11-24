@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <link href="css/nouislider.min.css" rel="stylesheet">
+  <link href="css/profile.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Profile</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head> 
+<body>
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="../" class="orange-text text-accent-4 brand-logo">TradMania</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/projet">Espace porteur</a></li>
+      <li><a href="/traducteur">Espace Traducteur</a></li>
+      <li><a href='/dashboard'><i class="material-icons">dashboard</i></a></li>
+      <li><a href='/uprojet'><i class="material-icons">add_circle</i></a></li>
+      <li><a class='dropdown-button' data-beloworigin="true" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
+
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a class="orange-text" href="/profile">Profile</a></li>
+        <li><a class="orange-text" href="/deco">Deconnexion</a></li>
+      </ul>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="/projet">Espace porteur</a></li>
+      <li><a href="/traducteur">Espace Traducteur</a></li>
+      <br> 
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/deco">Deconnexion</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+  <div class="container">
+    <div class="col s12 m9 l10">
+      <h2 class="sujet"> PROFILE </h2>
+      <div class="col s12">
+        <div class="card-panel">
+          <img class="avatar" <% if (user.img) { %> src="img/<%= user.img %>"<% } else { %>src="../img/user.png"<%} %>>
+          <div class="title-news">
+           <button onclick="document.location.href='../userprofile?q=<%= user._id %>'" class="waves-effect waves-light btn orange"><i class="material-icons left">chevron_left</i>Voir Profile</button>
+           <button id="savebtn" class="waves-effect waves-light btnright btn orange"><i class="material-icons right">save</i>Save</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <form id="form1" action="../profile" method="post" enctype="multipart/form-data">
+    <div class="row">
+     <div class="col s12">
+       <div class="card-panel">
+        <h5>Informations Publiques</h5>
+
+        <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input name="name" id="icon_prefix" type="text" class="i_pseudo" <% if (user.name) { %> placeholder="<%= user.name %>"<% } %> >
+            <label for="icon_prefix">Pseudo</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">home</i>
+            <input name="country" id="icon_prefix" type="text" class="i_pays" <% if (user.country) { %> placeholder="<%= user.country %>"<% } %>>
+            <label for="icon_prefix">Pays</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">forum</i>
+            <input name="lg" id="icon_prefix" type="text" class="i_langue" <% if (user.lg) { %> placeholder="<%= user.lg %>"<% } %>>
+            <label for="icon_prefix">Langue(s) connue(s)</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="file-field input-field col s12">
+            <div class="btn orange">
+              <span>Image Profile</span>
+              <input type="file" name="img">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Préférez des images en 250x250">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <div class="card-panel">
+        <h5>Informations Privées</h5>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">email</i>
+            <input name="mail" id="icon_prefix" type="text" class="i_email" <% if (user.mail) { %> placeholder="<%= user.mail %>"<% } %>>
+            <label for="icon_prefix">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">lock</i>
+            <input name="pass"id="icon_prefix" type="password" class="i_pseudo">
+            <label for="icon_prefix">Mot de Passe</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">lock</i>
+            <input id="icon_prefix" type="password" class="i_pays">
+            <label for="icon_prefix">Répétez votre mot de passe</label>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <button data-target="modal1" class="waves-effect waves-light btnright btn orange modal-trigger"><i class="material-icons left">clear</i>Supprimer le compte</button>
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Êtes vous sûr de vouloir supprimer votre compte ?</h4>
+              <p style="color: grey;">Vos projets ne seront plus accessible et vous perdrez toute production</p>
+              <br>
+              <button id="rm" class="waves-effect waves-light btn red">SUPPRIMER</button>
+              <button class="waves-effect waves-light btn green">ANNULER</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<%-include('/root/tradmania/view/footer');%>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript" src="js/mprofil.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('select').material_select();
+ });
+</script>
+<script type="text/javascript">  
+  $(document).ready(function(){
+    $('.modal').modal();
+    $('#rm').click(function(){
+      $.post("../rmuser");
+    })
+  });
+</script>
+</body>
+</html>

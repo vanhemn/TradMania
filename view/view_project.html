@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <link href="css/nouislider.min.css" rel="stylesheet">
+  <link href="css/view_project.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>TradMania</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head> 
+<body>
+
+<% if (navbar) { %> <%-include('/root/tradmania/view/nav_bar_online');%> <% } else { %> <%-include('/root/tradmania/view/nav_bar_offline');%> <%} %>
+
+  <div class="container">
+    <h2 style="text-align: center;" class="grey-text text-darken-1">PROJET</h2>
+    <div class="row">
+      <!-- Information général --> 
+      <div class="col s9">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s9 m4">
+            <img class="avatar" <% if (projet.img) { %> src="img/<%= projet.img %>"<% } else { %>src="../img/default-book.png"<%} %>>
+           </div>
+           <div class="col s9 m4 offset-m1">
+             <% if (projet.name) { %>
+             <h5><%= projet.name %></h5>
+             <% } %>
+             <% if (projet.lgd) { %>
+             <h5><%= projet.lgd %></h5>
+             <% } %>
+             <% if (projet.owner) { %>
+             <button onclick="document.location.href='../userprofile?q=<%= projet.owner %>'" style="align-content: center;" class="waves-effect waves-light btn orange"><i class="material-icons">person</i>Profil Créateur</button>
+             <% } %>
+             <% if (projet.date) { %>
+             <h6><%= projet.date %></h6>
+             <% } %>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- ETAT -->
+     <div class="col s3">
+      <div class="card-panel">
+        <h5> ETAT </h5>
+        <h6><nono class="red-text">En cours</nono></h6>
+      </div>
+      <div class="card-panel" style="height: 140px;">
+        <button onclick="document.location.href='../utradadd?q=<%= projet._id %>'" class="waves-effect waves-light btn btngo orange" style="align-content: center; font-size: 19px; height: 60px" >participer</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s5">
+      <div class="card-panel">
+        <h5>Langue(s) Visée(s)</h5>
+        <% if (projet.lgs) { %>
+        <h6><%= projet.lgs %></h6>
+        <% } %>
+      </div>
+    </div>
+    <div class="col s7">
+      <div class="card-panel">
+        <h5>DESCRIPTION</h5>
+        <% if (projet.desc) { %>
+        <span><%= projet.desc %></span>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%-include('/root/tradmania/view/footer');%>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('select').material_select();
+ });
+</script>
+<script type="text/javascript">  $(document).ready(function(){
+  $('.modal').modal();
+});</script>
+</body>
+</html>

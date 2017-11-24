@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>TradMania</title>
+  <link href="css/nouislider.min.css" rel="stylesheet">
+  <link href="css/traducteur.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<% if (navbar) { %> <%-include('/root/tradmania/view/nav_bar_online');%> <% } else { %> <%-include('/root/tradmania/view/nav_bar_offline');%> <%} %>
+
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Traducteur</h1>
+        <div class="row center">
+          <h5 class="header col s12 grey-text text-darken-1">Liste de tout les traducteurs</h5>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="flat.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+  <br><br>
+  <div class="container">
+    <div class="row">
+     <div class="input-field col s9">
+      <i class="material-icons prefix">search</i>
+      <input id="q" type="text" class="validate">
+      <label for="q">Rechercher</label>
+    </div>
+    <div class="input-field col s3">
+      <select>
+        <option value="" disabled selected>Trier par</option>
+        <option value="1">Popularité</option>
+        <option value="2">Alphabétique</option>
+        <option value="3">Plus récent</option>
+      </select>
+      <label>Traducteur</label>
+    </div>
+
+  </div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="input-field col s10">
+      <div id="slider"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+   <% for(var i=0; i<trad.length; i++) { %>
+   <div id="<%= trad[i]._id %>"class="col s4 m3" onclick="document.location.href='../userprofile?q=<%= trad[i]._id %>'">
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator avatar" <% if (trad[i].img) { %> src="img/<%= trad[i].img %>"<% } else { %>src="../img/user.png"<%} %>>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4" id="align" style="font-size: 16px;"><%= trad[i].name %></span>
+        <p id="align"><a href="#" class="orange-text">Voir profil</a></p>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+</div>
+
+
+
+
+<footer class="page-footer grey darken-1">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Social</h5>
+        <ul>
+          <li><a class="white-text" href="https://twitter.com/Trad_mania">Twitter @Trad_mania</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      All right reserved, Made by TradMania'Corp @ 2017
+    </div>
+  </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('select').material_select();
+ });
+</script>
+
+</body>
+</html>

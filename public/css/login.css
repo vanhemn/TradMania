@@ -1,0 +1,99 @@
+div.center-div {
+	width: 300px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+body {
+	background-image: url(../img/gplaypattern.png);
+}
+
+html,
+body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+i.icon-div {
+	padding-top: 10px;
+}
+
+.row {
+	margin-bottom: 0px;
+}
+
+.remember-div {
+	margin-bottom: 5px !important;
+	margin-top: 30px !important;
+}
+
+body .teal-text,body .teal-text.prefix.active,body label.active,.input-field .prefix {
+	color: rgb(231, 128, 36)!important;
+}
+
+.orange:checked + label:before {
+	top: -4px;
+	left: -3px;
+	width: 12px;
+	height: 22px;
+	border-top: 2px solid transparent;
+	border-left: 2px solid transparent;
+	border-right: 2px solid rgba(231, 128, 36, 0.95);
+	border-bottom: 2px solid rgba(231, 128, 36, 0.95); 
+	-webkit-transform: rotate(40deg);
+	-moz-transform: rotate(40deg);
+	-ms-transform: rotate(40deg);
+	-o-transform: rotate(40deg);
+	transform: rotate(40deg);
+	-webkit-backface-visibility: hidden;
+	-webkit-transform-origin: 100% 100%;
+	-moz-transform-origin: 100% 100%;
+	-ms-transform-origin: 100% 100%;
+	-o-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
+}
+
+body .btn, body .btn-large {
+	background:rgba(231, 128, 36, 0.95)!important;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid rgb(231, 128, 36)!important;
+    box-shadow: 0 1px 0 0 rgba(231, 128, 36, 0.95)!important;
+}
+
+
+/*loader related*/
+#tradmaniasvg{
+  width:400px;
+  margin-left:calc(50% - 200px);
+  display:block;
+  position: fixed;
+  top: calc(50% - 200px);
+}
+
+#tradmaniasvg path.cls-2{
+  stroke-width:1px;
+  stroke:#fff;
+  opacity:0;
+  fill:#ff6d00;
+}
+#tradmania path.cls-1{
+  opacity:0;
+}
+#tradmaniasvg path.cls-3{
+  opacity:0;
+}
+#tradmaniasvg #backgroundcircle{
+  fill:#ff6d00;
+  opacity:0;
+}

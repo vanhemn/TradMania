@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="icon" type="image/png" href="/img/logo.png" />
+	<title>Register</title>
+</head>
+
+<body>
+	<main class="element">
+		<div class="row center-div offset-m3">
+			<div>
+				<div class="card grey lighten-4 z-depth-4">
+					<div class="card-content teal-text lighten-2">
+						<h4 class="center">TRAD MANIA</h4>
+						<p class="center" style="color: grey;"> Join our community now!</p>
+						<br>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix icon-div">account_circle</i>
+								<input id="username" type="text" class="validate">
+								<label for="username">Username</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix icon-div">email</i>
+								<input id="email" type="text" class="validate">
+								<label for="email">Email</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 ">
+								<i class="material-icons prefix icon-div">lock</i>
+								<input id="password" type="password" class="validate">
+								<label for="paswword">Password</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 ">
+								<i class="material-icons prefix icon-div">lock</i>
+								<input id="passwordValid" type="password" class="validate">
+								<label for="passwordValid">Password again</label>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<button class="btn waves-effect waves-light col s12" type="submit" name="action" onclick="check()">Register Now
+								<i class="material-icons right">send</i>
+							</button>
+							<div class="input-field col s12">
+								<p class="margin center medium-small sign-up" style="color: grey; font-size: smaller;">Already have an account? <a  href="login" style="color: black;">Login</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>TradMania</title>
+  <link href="css/nouislider.min.css" rel="stylesheet">
+  <link href="css/projet.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+  <% if (navbar) { %> <%-include('/root/tradmania/view/nav_bar_online');%> <% } else { %> <%-include('/root/tradmania/view/nav_bar_offline');%> <%} %>
+
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Projets</h1>
+        <div class="row center">
+          <h5 class="header col s12 grey-text text-darken-1">Liste de tout les projets</h5>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="flat.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+  <br><br>
+  <div class="container">
+    <div class="row">
+     <div class="input-field col s5">
+      <i class="material-icons prefix">search</i>
+      <input id="q" type="text" class="validate">
+      <label for="q">Rechercher</label>
+    </div>
+
+    <div class="input-field col s2">
+      <select>
+        <optgroup label="Ascendant ▲">
+          <option value="1" selected>Date</option>
+          <option value="2" >Avancement</option>
+          <option value="3" >Participant</option>
+          <optgroup label="Descandant ▼">
+            <option value="1" >Date</option>
+            <option value="2" >Avancement</option>
+            <option value="3" >Participant</option>
+          </select>
+          <label>trier par</label>
+        </div>
+        <div class="input-field col s3">
+          <select multiple>
+            <option class="checkbox-orange" value="1" selected>Document</option>
+            <option class="checkbox-orange" value="2" selected>Vidéo</option>
+            <option class="checkbox-orange" value="3" selected>Jeux</option>
+            <option class="checkbox-orange" value="4" selected>Autre</option>
+          </select>
+          <label>Type de projet</label>
+        </div>
+        <label>Voir les projet terminés</label>
+        <!-- Switch -->
+        <div class="switch s2">
+          <label>
+            Off
+            <input type="checkbox" >
+            <span class="lever"></span>
+            On
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="input-field col s10">
+        <div id="slider"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <% for(var i=0; i<projet.length; i++) { %>
+      <div class="col s6 m4">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator avatar" <% if (projet[i].img) { %> src="img/<%= projet[i].img %>"<% } else { %>src="../img/default-book.png"<%} %>>
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%= projet[i].name %></span>
+            <% if (navbar) { %>
+            <p><a href="#" onclick="document.location.href='../viewprojet?q=<%= projet[i]._id %>'" class="orange-text">Voir le projet</a></p>
+            <% } %> 
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= projet[i].name %><i class="material-icons right">close</i></span>
+            <p><%= projet[i].desc %></p>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+  </div>
+
+
+
+
+<%-include('/root/tradmania/view/footer');%>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+     $('select').material_select();
+   });
+ </script>
+
+</body>
+</html>

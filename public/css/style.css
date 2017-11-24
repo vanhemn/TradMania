@@ -1,0 +1,88 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #FF6D00;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 600px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+/*loader related*/
+#tradmaniasvg{
+  width:400px;
+  margin-left:calc(50% - 200px);
+  display:block;
+  position: fixed;
+  top: calc(50% - 200px);
+}
+
+#tradmaniasvg path.cls-2{
+  stroke-width:1px;
+  stroke:#fff;
+  opacity:0;
+  fill:#ff6d00;
+}
+#tradmania path.cls-1{
+  opacity:0;
+}
+#tradmaniasvg path.cls-3{
+  opacity:0;
+}
+#tradmaniasvg #backgroundcircle{
+  fill:#ff6d00;
+  opacity:0;
+}

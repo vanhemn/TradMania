@@ -1,0 +1,70 @@
+TypeError: Cannot read property '_id' of undefined
+    at /root/tradmania/src/tradtool.js:6:81
+    at Layer.handle [as handle_request] (/root/tradmania/node_modules/express/lib/router/layer.js:95:5)
+    at next (/root/tradmania/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/root/tradmania/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/root/tradmania/node_modules/express/lib/router/layer.js:95:5)
+    at /root/tradmania/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/root/tradmania/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/tradmania/node_modules/express/lib/router/index.js:275:10)
+    at SendStream.error (/root/tradmania/node_modules/serve-static/index.js:121:7)
+    at emitOne (events.js:96:13)
+    at SendStream.emit (events.js:191:7)
+    at SendStream.error (/root/tradmania/node_modules/send/index.js:282:17)
+    at SendStream.onStatError (/root/tradmania/node_modules/send/index.js:433:12)
+    at next (/root/tradmania/node_modules/send/index.js:743:16)
+    at onstat (/root/tradmania/node_modules/send/index.js:732:14)
+    at FSReqWrap.oncomplete (fs.js:114:15)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+Error: Unexpected end of multipart data
+    at /root/tradmania/node_modules/dicer/lib/Dicer.js:62:28
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+TypeError: Cannot read property '_id' of undefined
+    at /root/tradmania/src/tradtool.js:6:81
+    at Layer.handle [as handle_request] (/root/tradmania/node_modules/express/lib/router/layer.js:95:5)
+    at next (/root/tradmania/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/root/tradmania/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/root/tradmania/node_modules/express/lib/router/layer.js:95:5)
+    at /root/tradmania/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/root/tradmania/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/tradmania/node_modules/express/lib/router/index.js:275:10)
+    at SendStream.error (/root/tradmania/node_modules/serve-static/index.js:121:7)
+    at emitOne (events.js:96:13)
+    at SendStream.emit (events.js:191:7)
+    at SendStream.error (/root/tradmania/node_modules/send/index.js:282:17)
+    at SendStream.onStatError (/root/tradmania/node_modules/send/index.js:433:12)
+    at next (/root/tradmania/node_modules/send/index.js:743:16)
+    at onstat (/root/tradmania/node_modules/send/index.js:732:14)
+    at FSReqWrap.oncomplete (fs.js:114:15)

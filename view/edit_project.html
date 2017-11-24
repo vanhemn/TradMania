@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <link href="css/nouislider.min.css" rel="stylesheet">
+  <link href="css/edit_project.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>TradMania</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styleprojet.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head> 
+<body>
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="../" class="orange-text text-accent-4 brand-logo">TradMania</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/projet">Espace porteur</a></li>
+      <li><a href="/traducteur">Espace Traducteur</a></li>
+      <li><a href='/dashboard'><i class="material-icons">dashboard</i></a></li>
+      <li><a href='/uprojet'><i class="material-icons">add_circle</i></a></li>
+      <li><a class='dropdown-button' data-beloworigin="true" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
+
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a class="orange-text" href="/profile">Profile</a></li>
+        <li><a class="orange-text" href="/deco">Deconnexion</a></li>
+      </ul>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="/projet">Espace porteur</a></li>
+      <li><a href="/traducteur">Espace Traducteur</a></li>
+      <br> 
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/deco">Deconnexion</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+  <div class="container">
+    <h2 style="text-align: center;" class="grey-text text-darken-1">MODIFICATION PROJET</h2>
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+         <button onclick="document.location.href='../viewprojet?q=<%= projet._id %>'" class="waves-effect waves-light btn orange"><i class="material-icons left">chevron_left</i>Voir projet</button>
+         <button id="savebtn" class="waves-effect waves-light btnright btn orange" style="float: right;"><i class="material-icons right">save</i>Save</button>
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <form id="form1" action="../editprojet" method="post" enctype="multipart/form-data">
+      <!-- Information général --> 
+      <div class="col s9">
+        <div class="card-panel">
+          <div class="row">
+            <div class="col s5">
+              <img class="avatar" <% if (projet.img) { %> src="img/<%= projet.img %>"<% } else { %>src="../img/default-book.png"<%} %>>
+            </div>
+            <div class="col s5">
+              <div class="input-field">
+                <i class="material-icons prefix">bookmark_border</i>
+                <input name="name" id="icon_prefix" <% if (projet.name) { %> placeholder="<%= projet.name %>"<% } %> type="text" class="validate">
+                <label for="icon_prefix">Nom du projet</label>
+                <textarea style="display:none;" name="_id2"><%= projet._id %></textarea>
+              </div>
+            </div>
+            <div class="col s5">
+              <div class="file-field input-field">
+                <div class="btn orange">
+                  <span>IMAGE</span>
+                  <input name="img" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input  class="file-path validate" type="text">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="col s5">
+              <label>Invisible</label>
+              <div class="switch tooltipped" data-position="bottom" data-delay="60" data-tooltip="En mode Invisble le projet ne pourra pas être rejoin par de nouveaux utilisateurs">
+                <label>
+                  Off
+                  <input type="checkbox">
+                  <span class="lever"></span>
+                  On
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- ETAT -->
+      <div class="col s3">
+        <div class="card-panel">
+          <h5 style="text-align: center;"> INFOS PRATIQUE </h5>
+          <br>
+          <br>
+          <h6><nono class="red-text">En cours</non></h6>
+          <br>
+            <p style="font-size: 12px;" class="grey-text">PARTICIPANTS <nbr>(<% if (projet.users) { %><%=projet.users.length%><% } else { %>0<% } %>)<nbr></p>
+        </div>
+      </div>
+      <!-- Description -->
+      <div class="row">
+        <div class="col s4">
+          <div class="card-panel">
+            <h5> LANGUES </h5>
+
+            <div class="row">
+        <div class="input-field col s11">
+          <i class="material-icons prefix">public</i>
+          <textarea id="icon_prefix2" class="materialize-textarea" placeholder="[les langues]"></textarea>
+        </div>
+      </div>
+
+          </div>
+        </div>
+        <div class="col s8">
+          <div class="card-panel">
+            <h5> DESCRIPTION </h5>
+            <div class="row">
+              <div class="input-field col s11" style="margin-left: 15px">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea name="desc" id="icon_prefix2" class="materialize-textarea" <% if (projet.desc) { %> placeholder="<%= projet.desc %>"<% } %> type="text" class="validate"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<footer class="page-footer grey darken-1">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Settings</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      All right reserved, Made by TradMania'Corp @ 2017
+    </div>
+  </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#savebtn').click(function(){
+      $("input,textarea").each(function(index){
+        if ($(this).val() == ""){
+          $(this).prop('disabled', true);
+        }
+      })
+      $("#form1").submit();
+    })
+    $('select').material_select();
+  });
+</script>
+<script type="text/javascript">  
+  $(document).ready(function(){
+
+    $('.modal').modal();
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+</script>
+</body>
+</html>
